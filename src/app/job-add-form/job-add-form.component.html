@@ -1,0 +1,23 @@
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="createJob()">
+    <div class="row">
+      <div class="col">
+        <label for="title">titre</label>
+        <input type="text" name="title" class="form-control" placeholder="titre de votre annonce" formControlName="title">
+        <label for="company">entreprise</label>
+        <input type="text" name="company" class="form-control" placeholder="nom de l'entreprise" formControlName="company">
+        <label for="city">ville</label>
+        <input type="text" name="city" class="form-control" placeholder="nom de la ville" formControlName="city">
+        <label for="zipcode">code postal</label>
+        <input type="text" name="zipcode" class="form-control" placeholder="codepostal" formControlName="zipcode">
+      </div>
+      <div class="col">
+        <label for="description">description</label>
+        <textarea name="description" cols="30" rows="10"></textarea>
+      </div>
+      <div class="form-group col-sm-12">
+        <button type="submit" class="btn btn-success">créer l'annonce</button>
+      </div>
+    </div>
+  </form>
+</div>

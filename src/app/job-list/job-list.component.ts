@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import 'rxjs/add/operator/map';
+
+import { JobService } from "../services/job.service";
 
 @Component({
   selector: 'bc-job-list',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobListComponent implements OnInit {
 
-  constructor() { }
+  jobs = [];
+  error = '';
+
+  constructor(private jobService: JobService) { }
 
   ngOnInit() {
+    this.jobService.getJobs()
+      .subscribe(
+        data => this.jobs = data,
+        error => {
+          console.log(error);
+          this.error = error;
+        }
+      )
   }
 
 }
