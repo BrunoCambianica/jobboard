@@ -20,6 +20,11 @@ export class JobService {
       .map(res => res.json())
   }
 
+  getJob(id){
+    return this.http.get(this.BASE_URL + `api/jobs/${id}`)
+    .map(res => res.json())
+  }
+
   addJob(jobData){
     jobData.id = Date.now();
     // this.jobs = [jobData, ...this.jobs];
