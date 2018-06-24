@@ -14,6 +14,8 @@ import { DaysAgoPipe } from './pipes/days-ago.pipe';
 import { HomeComponent } from './home/home.component';
 import { JobDetailsComponent } from './job-details/job-details.component';
 import { AboutComponent } from './about/about.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { AuthService } from './services/auth.service';
 
 const routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +23,8 @@ const routes = [
   { path: 'jobs/:id', component: JobDetailsComponent },
   { path: 'jobs', component: JobListComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'login', component: AuthenticationComponent },
+  { path: 'register', component: AuthenticationComponent },
 
 ]
 
@@ -34,7 +38,8 @@ const routes = [
     DaysAgoPipe,
     HomeComponent,
     JobDetailsComponent,
-    AboutComponent
+    AboutComponent,
+    AuthenticationComponent
   ],
   //modules
   imports: [
@@ -46,7 +51,8 @@ const routes = [
   ],
   //services
   providers: [
-    JobService
+    JobService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
